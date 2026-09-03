@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Orders</title>
+</head>
+<body>
+
+<h1>Order Management</h1>
+
+<table border="1" cellpadding="10">
+    <tr>
+        {% if orders %}
+            {% for key in orders[0].keys() %}
+                <th>{{ key }}</th>
+            {% endfor %}
+        {% endif %}
+    </tr>
+
+    {% for order in orders %}
+    <tr>
+        {% for value in order.values() %}
+            <td>{{ value }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/">Back to Home</a>
+
+</body>
+</html>
