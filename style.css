@@ -1,0 +1,443 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #050505;
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* =================================
+   CURSOR LIGHT
+================================= */
+
+#cursor-light {
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 220, 255, 0.18) 0%,
+            rgba(0, 220, 255, 0.08) 30%,
+            transparent 70%
+        );
+
+    transform: translate(-50%, -50%);
+
+    z-index: 0;
+
+    transition:
+        left 0.08s ease,
+        top 0.08s ease;
+}
+
+/* =================================
+   NAVBAR
+================================= */
+
+nav {
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    border-bottom: 1px solid #222;
+
+    position: relative;
+    z-index: 10;
+
+    background: rgba(5, 5, 5, 0.8);
+}
+
+.logo {
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.nav-right {
+    color: #888;
+}
+
+/* =================================
+   MAIN
+================================= */
+
+main {
+    width: 90%;
+    max-width: 1400px;
+
+    margin: auto;
+
+    position: relative;
+    z-index: 2;
+}
+
+/* =================================
+   HERO
+================================= */
+
+.hero {
+    padding: 80px 0 60px;
+}
+
+.small-title {
+    color: #00d9ff;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 58px;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #00d9ff;
+}
+
+.description {
+    max-width: 650px;
+    color: #999;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* =================================
+   DASHBOARD
+================================= */
+
+.dashboard {
+    margin-bottom: 60px;
+}
+
+.section-heading,
+.data-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.section-heading h2,
+.data-header h2 {
+    font-size: 30px;
+}
+
+/* =================================
+   TABLE CARDS
+================================= */
+
+.table-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 20px;
+}
+
+.table-card {
+    padding: 30px;
+
+    background: rgba(20, 20, 20, 0.8);
+
+    border: 1px solid #292929;
+
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.table-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #00d9ff;
+
+    box-shadow:
+        0 0 30px rgba(0, 217, 255, 0.12);
+}
+
+.table-number {
+    color: #555;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.table-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.table-card p {
+    color: #777;
+}
+
+/* =================================
+   DATA SECTION
+================================= */
+
+.data-section {
+    padding: 35px;
+
+    background: rgba(15, 15, 15, 0.9);
+
+    border: 1px solid #292929;
+
+    border-radius: 18px;
+
+    margin-bottom: 80px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* =================================
+   CONTROLS
+================================= */
+
+.controls {
+    display: flex;
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.controls input {
+    flex: 1;
+
+    padding: 14px 18px;
+
+    background: #090909;
+
+    color: white;
+
+    border: 1px solid #333;
+
+    border-radius: 8px;
+
+    outline: none;
+}
+
+.controls input:focus {
+    border-color: #00d9ff;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+.add-btn,
+.save-btn {
+    padding: 14px 22px;
+
+    background: #00d9ff;
+
+    color: black;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+}
+
+.close-btn {
+    width: 40px;
+    height: 40px;
+
+    background: #222;
+
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 25px;
+}
+
+/* =================================
+   DATA TABLE
+================================= */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #181818;
+
+    color: #00d9ff;
+
+    padding: 15px;
+
+    text-align: left;
+
+    white-space: nowrap;
+}
+
+td {
+    padding: 14px;
+
+    border-bottom: 1px solid #252525;
+
+    color: #bbb;
+
+    white-space: nowrap;
+}
+
+tr:hover td {
+    background: #121212;
+}
+
+.action-btn {
+    padding: 7px 12px;
+
+    border-radius: 6px;
+
+    margin-right: 5px;
+}
+
+.edit-btn {
+    background: #222;
+    color: #00d9ff;
+}
+
+.delete-btn {
+    background: #2a1111;
+    color: #ff6666;
+}
+
+/* =================================
+   MODAL
+================================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 100;
+}
+
+.modal-content {
+    width: 90%;
+    max-width: 600px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #101010;
+
+    border: 1px solid #333;
+
+    border-radius: 15px;
+
+    padding: 30px;
+}
+
+.modal-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+.modal-header button {
+    background: none;
+
+    color: white;
+
+    font-size: 25px;
+}
+
+#form-fields {
+    display: grid;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.form-group label {
+    color: #aaa;
+}
+
+.form-group input {
+    padding: 12px;
+
+    background: #050505;
+
+    color: white;
+
+    border: 1px solid #333;
+
+    border-radius: 7px;
+}
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 700px) {
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    .data-section {
+        padding: 20px;
+    }
+
+    nav {
+        padding: 0 4%;
+    }
+}
