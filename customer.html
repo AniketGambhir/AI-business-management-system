@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Customer Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="table-container">
+
+    <h1>Customer Management</h1>
+
+
+    <!-- ================= SEARCH ================= -->
+
+    <form action="/customer/search" method="GET">
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search customer..."
+        >
+
+        <button type="submit" class="btn-primary">
+            Search
+        </button>
+
+        <a href="/customers" class="btn-success">
+            Show All
+        </a>
+
+    </form>
+
+
+    <br>
+
+
+    <!-- ================= ADD CUSTOMER ================= -->
+
+    <h2>Add Customer</h2>
+
+    <form action="/customer/add" method="POST">
+
+        <input
+            type="text"
+            name="customer_name"
+            placeholder="Customer Name"
+            required
+        >
+
+        <br><br>
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+        >
+
+        <br><br>
+
+        <input
+            type="text"
+            name="phone"
+            placeholder="Phone"
+            required
+        >
+
+        <br><br>
+
+        <input
+            type="text"
+            name="address"
+            placeholder="Address"
+            required
+        >
+
+        <br><br>
+
+        <button type="submit" class="btn-success">
+            Add Customer
+        </button>
+
+    </form>
+
+
+    <br><br>
+
+
+    <!-- ================= CUSTOMER TABLE ================= -->
+
+    <h2>Customer Records</h2>
+
+    <table>
+
+        <tr>
+
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Operations</th>
+
+        </tr>
+
+
+        {% for customer in customers %}
+
+        <tr>
+
+            <td>
+                {{ customer.customer_id }}
+            </td>
+
+            <td>
+                {{ customer.customer_name }}
+            </td>
+
+            <td>
+                {{ customer.email }}
+            </td>
+
+            <td>
+                {{ customer.phone }}
+            </td>
+
+            <td>
+                {{ customer.address }}
+            </td>
+
+            <td>
+
+                <!-- DELETE -->
+
+                <a
+                    href="/customer/delete/{{ customer.customer_id }}"
+                    class="btn-danger"
+                    onclick="return confirm('Are you sure you want to delete this customer?')"
+                >
+                    Delete
+                </a>
+
+
+                <!-- UPDATE -->
+
+                <form
+                    action="/customer/update/{{ customer.customer_id }}"
+                    method="POST"
+                    style="margin-top:10px;"
+                >
+
+                    <input
+                        type="text"
+                        name="customer_name"
+                        value="{{ customer.customer_name }}"
+                        required
+                    >
+
+                    <input
+                        type="email"
+                        name="email"
+                        value="{{ customer.email }}"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        name="phone"
+                        value="{{ customer.phone }}"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        name="address"
+                        value="{{ customer.address }}"
+                        required
+                    >
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+                        Update
+                    </button>
+
+                </form>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+
+    <br>
+
+    <a href="/" class="back-button">
+        Back to Home
+    </a>
+
+</div>
+
+</body>
+
+</html>
