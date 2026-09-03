@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Business Management System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- Cursor Light -->
+    <div id="cursor-light"></div>
+
+    <!-- Navigation -->
+    <nav>
+
+        <div class="logo">
+            AI BUSINESS MANAGEMENT SYSTEM
+        </div>
+
+        <div class="nav-right">
+            <span>DBMS Project</span>
+        </div>
+
+    </nav>
+
+
+    <!-- Main Container -->
+    <main>
+
+        <section class="hero">
+
+            <p class="small-title">
+                DATABASE MANAGEMENT SYSTEM
+            </p>
+
+            <h1>
+                AI Business
+                <span>Management System</span>
+            </h1>
+
+            <p class="description">
+                Manage customers, employees, products, inventory,
+                orders, invoices and projects from one dynamic system.
+            </p>
+
+        </section>
+
+
+        <!-- Dashboard -->
+        <section class="dashboard">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="small-title">DATABASE</p>
+                    <h2>Management Modules</h2>
+                </div>
+
+                <div id="record-count">
+                    Loading...
+                </div>
+
+            </div>
+
+
+            <!-- Table Cards -->
+            <div id="table-container"
+                 class="table-grid">
+
+            </div>
+
+        </section>
+
+
+        <!-- Data Section -->
+        <section id="data-section"
+                 class="data-section hidden">
+
+            <div class="data-header">
+
+                <div>
+                    <p class="small-title">
+                        TABLE DATA
+                    </p>
+
+                    <h2 id="table-title">
+                        Table
+                    </h2>
+                </div>
+
+                <button onclick="closeTable()"
+                        class="close-btn">
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- Controls -->
+            <div class="controls">
+
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search records..."
+                    onkeyup="searchRecords()"
+                >
+
+                <button onclick="openInsertForm()"
+                        class="add-btn">
+                    + Add Record
+                </button>
+
+            </div>
+
+
+            <!-- Table -->
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead id="table-head">
+                    </thead>
+
+                    <tbody id="table-body">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Insert / Update Modal -->
+    <div id="modal"
+         class="modal hidden">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2 id="modal-title">
+                    Add Record
+                </h2>
+
+                <button onclick="closeModal()">
+                    ×
+                </button>
+
+            </div>
+
+            <form id="record-form"
+                  onsubmit="saveRecord(event)">
+
+                <div id="form-fields">
+                </div>
+
+                <button type="submit"
+                        class="save-btn">
+                    Save Record
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='app.js') }}">
+    </script>
+
+</body>
+
+</html>
