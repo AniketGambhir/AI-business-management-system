@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employees</title>
+</head>
+<body>
+
+<h1>Employee Management</h1>
+
+<table border="1" cellpadding="10">
+    <tr>
+        {% if employees %}
+            {% for key in employees[0].keys() %}
+                <th>{{ key }}</th>
+            {% endfor %}
+        {% endif %}
+    </tr>
+
+    {% for employee in employees %}
+    <tr>
+        {% for value in employee.values() %}
+            <td>{{ value }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/">Back to Home</a>
+
+</body>
+</html>
