@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoices</title>
+</head>
+<body>
+
+<h1>Invoice Management</h1>
+
+<table border="1" cellpadding="10">
+    <tr>
+        {% if invoices %}
+            {% for key in invoices[0].keys() %}
+                <th>{{ key }}</th>
+            {% endfor %}
+        {% endif %}
+    </tr>
+
+    {% for invoice in invoices %}
+    <tr>
+        {% for value in invoice.values() %}
+            <td>{{ value }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/">Back to Home</a>
+
+</body>
+</html>
